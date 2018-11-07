@@ -1,11 +1,16 @@
+
 window.onload = function() {
 $("#display").hide();
 $("#questions").hide();
 $("#start").on("click", countDown.start);
 };
 
+
 //  Variable that will hold our setInterval that runs the stopwatch
 var intervalId;
+var correct = 0;
+var incorrect = 0;
+var unanswered = 0;
 
 // prevents the clock from being sped up unnecessarily
 var clockRunning = false;
@@ -31,13 +36,14 @@ var countDown = {
         intervalId = setInterval(countDown.count, 3000);
         clockRunning = true;
         console.log(intervalId);
-        $("#start").hide();
-        $("#display").show();
         question();
+       
       }
     },
           
     count: function() {
+
+      $("#display").show();
   
       // DONE: decrement time by 1
       countDown.time--;
@@ -78,7 +84,6 @@ var countDown = {
   
       return minutes + ":" + seconds;
     },
- 
     
   };
   function timeUp() {
@@ -88,11 +93,49 @@ var countDown = {
     $("#time-left").append("<h2>Time's Up!</h2>");
     console.log("time is up");
   }
-
+  
   function question(){
-    $("#questions").first().show("#q1");
-    //$("#questions>div:eq(0)").show("q1")
-    $("#questions>div:eq(0)").text();
+    var correct = 0;
+    var incorrect = 0;
+    var unanswered = 0;
+  $("#questions").show();
+    $("#div1").text("In what year did Colorado become a state?");
+
     
-      }
+    $("#div2").text("What is the heights mountain in Colorado?");
+    $("#div3").text("What city is home to the United States Air Force Academy?");
+    $("#div4").text("What is Colorado's state nickname?");
+    $("#div5").text("In what national park are ancient Indian cliff dwellings located?");
+    $("#div6").text("What is Colorado's state flower?");
+    $("#div7").text("What is the capital of Colorado?");
+    $("#div8").text("What is the state tree of Colorado?");
+    $("#div9").text("Which state is part of the four corners area?");
+    $("#div10").text("Eighty percent of Colorado's water comes from what source?");
+    $("#div11").text("What is the tallest building in Denver?");
+    $("#div12").text("What Western Slope town is known for its peaches?");
+    $("#div13").text("What two major Highway Interstates intersect in Denver?");
+    $("#div14").text("What Colorado city is the highest in the United States?");
+
+    $(document).ready(function () { 
+      $("#correct").text("Correct:" + correct);
+      $("#incorrect").text("Incorrect:" +incorrect);
+      });
+    }
+    
+
+  
+   // $(document).ready(function(){
+      //$("#questions").first().show("#q1");
+      //$("#questions>div:eq(0)").show("q1")
+     // $("#questions>div:eq(0)").text();
+    
+    
+      
+      
+
+       
+
+  
+
+     
 
