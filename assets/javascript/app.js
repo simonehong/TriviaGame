@@ -100,7 +100,14 @@ var countDown = {
     var unanswered = 0;
   $("#questions").show();
     $("#div1").text("In what year did Colorado become a state?");
-
+    $("#questions").delay();
+      var year = $( "input[type=radio][name=1876]:checked" ).val();
+    if(year === 1876){
+      correct++;
+    }else{
+      incorrect++;
+    }
+    console.log(year);
     
     $("#div2").text("What is the heights mountain in Colorado?");
     $("#div3").text("What city is home to the United States Air Force Academy?");
