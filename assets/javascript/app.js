@@ -3,6 +3,8 @@ window.onload = function() {
 $("#display").hide();
 $("#questions").hide();
 $("#start").on("click", countDown.start);
+$("#score").hide();
+
 };
 
 
@@ -10,7 +12,7 @@ $("#start").on("click", countDown.start);
 var intervalId;
 var correct = 0;
 var incorrect = 0;
-var unanswered = 0;
+var unanswered = 14;
 
 // prevents the clock from being sped up unnecessarily
 var clockRunning = false;
@@ -37,6 +39,7 @@ var countDown = {
         clockRunning = true;
         console.log(intervalId);
         question();
+        
        
       }
     },
@@ -44,6 +47,7 @@ var countDown = {
     count: function() {
 
       $("#display").show();
+      $("#start").hide();
   
       // DONE: decrement time by 1
       countDown.time--;
@@ -91,44 +95,300 @@ var countDown = {
     // console log done
     console.log("done");
     $("#time-left").append("<h2>Time's Up!</h2>");
+    $("#questions").hide();
+    $("#display").hide();
+    $("#start").hide();
     console.log("time is up");
+    $("#score").show();
+    
+    //$("#correct").text("Correct:" + correct);
+      //$("#incorrect").text("Incorrect:" +incorrect);
+    
+
   }
   
   function question(){
     var correct = 0;
     var incorrect = 0;
-    var unanswered = 0;
+    //var unanswered = 14;
+    //setTimeout(score, 1000 * 10);
   $("#questions").show();
     $("#div1").text("In what year did Colorado become a state?");
-    $("#questions").delay();
-      var year = $( "input[type=radio][name=1876]:checked" ).val();
-    if(year === 1876){
+    $("#year").on("click", function(){
+      var year = $( "input[type=radio][name=year]:checked" ).val();
+    if(year === '1876'){
       correct++;
-    }else{
+      unanswered--;
+    } else {
       incorrect++;
-    }
+      unanswered--;
+     }
     console.log(year);
-    
-    $("#div2").text("What is the heights mountain in Colorado?");
-    $("#div3").text("What city is home to the United States Air Force Academy?");
-    $("#div4").text("What is Colorado's state nickname?");
-    $("#div5").text("In what national park are ancient Indian cliff dwellings located?");
-    $("#div6").text("What is Colorado's state flower?");
-    $("#div7").text("What is the capital of Colorado?");
-    $("#div8").text("What is the state tree of Colorado?");
-    $("#div9").text("Which state is part of the four corners area?");
-    $("#div10").text("Eighty percent of Colorado's water comes from what source?");
-    $("#div11").text("What is the tallest building in Denver?");
-    $("#div12").text("What Western Slope town is known for its peaches?");
-    $("#div13").text("What two major Highway Interstates intersect in Denver?");
-    $("#div14").text("What Colorado city is the highest in the United States?");
 
-    $(document).ready(function () { 
-      $("#correct").text("Correct:" + correct);
-      $("#incorrect").text("Incorrect:" +incorrect);
-      });
-    }
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
     
+    });
+      
+    
+    $("#div2").text("What is the highest mountain in Colorado?");
+    $("#peak").on("click", function(){
+      var peak = $( "input[type=radio][name=peak]:checked" ).val();
+    if(peak === 'Mt. Elbert'){
+      correct++;
+      unanswered--;
+    } else {
+      incorrect++;
+      unanswered--;
+     }
+    console.log(peak);
+
+    $("#correct").text("Correct: " + correct);
+      $("#incorrect").text("Incorrect: " +incorrect);
+     $("#unanswered").text("Unanswered: " +unanswered);
+    
+    //score();
+    
+    
+    });
+    $("#div3").text("What city is home to the United States Air Force Academy?");
+    $("#city").on("click", function(){
+      var city = $( "input[type=radio][name=city]:checked" ).val();
+    if(city === 'Colorado Springs'){
+      correct++;
+      unanswered--;
+    } else {
+      incorrect++;
+      unanswered--;
+     }
+    console.log(city);
+
+    $("#correct").text("Correct: " + correct);
+      $("#incorrect").text("Incorrect: " +incorrect);
+     $("#unanswered").text("Unanswered: " +unanswered);
+
+    });
+    $("#div4").text("What is Colorado's state nickname?");
+    $("#nick").on("click", function(){
+      var nick = $( "input[type=radio][name=nick]:checked" ).val();
+    if(nick === 'Centennial State'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(nick);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+
+    });
+    $("#div5").text("In what national park are ancient Indian cliff dwellings located?");
+    $("#park").on("click", function(){
+      var park = $( "input[type=radio][name=park]:checked" ).val();
+    if(park === 'Mesa Verde'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(park);
+
+    $("#correct").text("Correct: " + correct);
+      $("#incorrect").text("Incorrect: " +incorrect);
+     $("#unanswered").text("Unanswered: " +unanswered);
+
+    });
+    $("#div6").text("What is Colorado's state flower?");
+    $("#flower").on("click", function(){
+      var flower = $( "input[type=radio][name=flower]:checked" ).val();
+    if(flower === 'Rocky Mountain Columbine'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(flower);
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+
+    });
+    $("#div7").text("What is the capital of Colorado?");
+    $("#cap").on("click", function(){
+      var cap = $( "input[type=radio][name=cap]:checked" ).val();
+    if(cap === 'Denver'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(cap);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+
+    });
+
+    $("#div8").text("What is the state tree of Colorado?");
+    $("#tree").on("click", function(){
+      var tree = $( "input[type=radio][name=tree]:checked" ).val();
+    if(tree === 'Colorado Blue Spruce'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(tree);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+
+    });
+
+    $("#div9").text("Which state is part of the four corners area?");
+    $("#state").on("click", function(){
+      var state = $( "input[type=radio][name=state]:checked" ).val();
+    if(state === 'Utah'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(state);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+    });
+
+    $("#div10").text("Eighty percent of Colorado's water comes from what source?");
+    $("#water").on("click", function(){
+      var water = $( "input[type=radio][name=water]:checked" ).val();
+    if(water === 'snow'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(water);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+    });
+
+    $("#div11").text("What is the tallest building in Denver?");
+    $("#build").on("click", function(){
+      var build = $( "input[type=radio][name=build]:checked" ).val();
+    if(build === 'Republic Plaza'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(build);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+    });
+
+    $("#div12").text("What Western Slope town is known for its peaches?");
+    $("#peach").on("click", function(){
+      var peach = $( "input[type=radio][name=peach]:checked" ).val();
+    if(peach === 'Palisade'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(peach);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+    });
+
+    $("#div13").text("Two major Highway Interstate that intersects in Denver?");
+    $("#hwy").on("click", function(){
+      var hwy = $( "input[type=radio][name=hwy]:checked" ).val();
+    if(hwy === 'I-25 and I-70'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(hwy);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+    });
+
+    $("#div14").text("What Colorado city is the highest in the United States?");
+    $("#local").on("click", function(){
+      var local = $( "input[type=radio][name=local]:checked" ).val();
+    if(local === 'Leadville'){
+      correct++;
+      unanswered--;
+    }  else{
+        incorrect++;
+        unanswered--;
+      }
+     
+    console.log(local);
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " +incorrect);
+   $("#unanswered").text("Unanswered: " +unanswered);
+    
+      //$("#correct").text("Correct: " + correct);
+      //$("#incorrect").text("Incorrect: " +incorrect);
+     // $("#unanswered").text("Unanswered: " +unanswered);
+
+    //core();
+  });
+}
+
+    
+ 
+  
+    
+
+ 
+  
+  
+  
+
+  
+    
+    
+
+  
 
   
    // $(document).ready(function(){
@@ -144,5 +404,4 @@ var countDown = {
 
   
 
-     
-
+    
