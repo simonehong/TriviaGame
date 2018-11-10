@@ -20,7 +20,7 @@ var clockRunning = false;
 // Our count down object
 var countDown = {
 
-      time: 10,
+      time: 15,
   
     reset: function() {
   
@@ -97,21 +97,17 @@ var countDown = {
     $("#time-left").append("<h2>Time's Up!</h2>");
     $("#questions").hide();
     $("#display").hide();
+    $("#title").hide();
     $("#start").hide();
     console.log("time is up");
     $("#score").show();
     
-    //$("#correct").text("Correct:" + correct);
-      //$("#incorrect").text("Incorrect:" +incorrect);
-    
-
-  }
+   }
   
   function question(){
     var correct = 0;
     var incorrect = 0;
-    //var unanswered = 14;
-    //setTimeout(score, 1000 * 10);
+    
   $("#questions").show();
     $("#div1").text("In what year did Colorado become a state?");
     $("#year").on("click", function(){
@@ -147,10 +143,7 @@ var countDown = {
     $("#correct").text("Correct: " + correct);
       $("#incorrect").text("Incorrect: " +incorrect);
      $("#unanswered").text("Unanswered: " +unanswered);
-    
-    //score();
-    
-    
+            
     });
     $("#div3").text("What city is home to the United States Air Force Academy?");
     $("#city").on("click", function(){
@@ -205,6 +198,7 @@ var countDown = {
      $("#unanswered").text("Unanswered: " +unanswered);
 
     });
+
     $("#div6").text("What is Colorado's state flower?");
     $("#flower").on("click", function(){
       var flower = $( "input[type=radio][name=flower]:checked" ).val();
@@ -222,6 +216,7 @@ var countDown = {
    $("#unanswered").text("Unanswered: " +unanswered);
 
     });
+
     $("#div7").text("What is the capital of Colorado?");
     $("#cap").on("click", function(){
       var cap = $( "input[type=radio][name=cap]:checked" ).val();
@@ -365,36 +360,34 @@ var countDown = {
     $("#correct").text("Correct: " + correct);
     $("#incorrect").text("Incorrect: " +incorrect);
    $("#unanswered").text("Unanswered: " +unanswered);
-    
-      //$("#correct").text("Correct: " + correct);
-      //$("#incorrect").text("Incorrect: " +incorrect);
-     // $("#unanswered").text("Unanswered: " +unanswered);
 
-    //core();
+  
+    });
+
+    function stop () {
+
+      // DONE: Use clearInterval to stop the count here and set the clock to not be running.
+      clearInterval(intervalId);
+      clockRunning = false;
+    }
+
+    $("#btnSubmit").on("click", function(){
+      $("#questions").hide();
+      $("#display").hide();
+      $("#start").hide();
+      
+        $("#score").show();
+
+      
+      stop();
+           
+
   });
-}
-
-    
- 
-  
-    
-
- 
-  
-  
-  
-
-  
-    
-    
+  }
 
   
 
-  
-   // $(document).ready(function(){
-      //$("#questions").first().show("#q1");
-      //$("#questions>div:eq(0)").show("q1")
-     // $("#questions>div:eq(0)").text();
+   
     
     
       
